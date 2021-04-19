@@ -25,12 +25,11 @@ tape('should respond user-agent', (t) => {
   })
 })
 
-tape('should respond user-agent', (t) => {
-  const opts = { headers: { 'User-Agent': 'tape' } }
-  jsonist.get(`${urlBase}/user-agent`, opts, (err, body) => {
+tape('should respond b64', (t) => {
+  jsonist.get(`${urlBase}/b64/hello`, (err, body) => {
     if (err) t.error(err)
 
-    t.equal(body.ua, 'tape')
+    t.equal(body.b64, 'aGVsbG8=')
     t.end()
   })
 })
